@@ -6,7 +6,7 @@ const { spawnSync } = require('node:child_process');
 const test = require('node:test');
 
 const repoRoot = path.resolve(__dirname, '..');
-const adapter = path.join(repoRoot, 'hooks', 'ponytail-aipack.js');
+const adapter = path.join(repoRoot, 'hooks', 'ponytail-aipack.cjs');
 
 function runAdapter(event, payload, configHome) {
   const result = spawnSync(process.execPath, [adapter, event], {

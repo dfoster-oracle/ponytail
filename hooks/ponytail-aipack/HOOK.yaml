@@ -6,15 +6,15 @@ events:
       source: startup|resume|clear|compact
     handler:
       type: command
-      command: "node {pack:root}/hooks/ponytail-aipack.js run.start"
+      command: "node {pack:root}/hooks/ponytail-aipack.cjs run.start"
       timeout: 5s
   - on: prompt.submit
     handler:
       type: command
-      command: "node {pack:root}/hooks/ponytail-aipack.js prompt.submit"
+      command: "node {pack:root}/hooks/ponytail-aipack.cjs prompt.submit"
       timeout: 5s
   - on: compact.before
     handler:
       type: command
-      command: "node {pack:root}/hooks/ponytail-aipack.js compact.before"
+      command: "node {pack:root}/hooks/ponytail-aipack.cjs compact.before"
       timeout: 5s
