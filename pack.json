@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/shrug-labs/aipack/main/schemas/pack.schema.json",
+  "schema_version": 2,
+  "name": "ponytail",
+  "version": "4.10.0",
+  "description": "Lazy senior developer mode: prefer YAGNI, native capabilities, and the smallest correct implementation.",
+  "root": "."
+}

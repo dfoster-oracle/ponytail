@@ -177,6 +177,15 @@ Copilot CLI namespaces plugin commands by plugin name. For example:
 pi install git:github.com/DietrichGebert/ponytail
 ```
 
+### AIPack
+
+```bash
+aipack pack install --url https://github.com/DietrichGebert/ponytail.git --add
+aipack sync
+```
+
+Installs the six skills and lifecycle hooks through AIPack's normal pack pipeline.
+
 ### OpenCode
 
 Add to `opencode.json`:

@@ -1,0 +1,20 @@
+name: ponytail-aipack
+description: Keep Ponytail active and apply mode changes in AIPack-supported harnesses.
+events:
+  - on: run.start
+    match:
+      source: startup|resume|clear|compact
+    handler:
+      type: command
+      command: "node {pack:root}/hooks/ponytail-aipack.js run.start"
+      timeout: 5s
+  - on: prompt.submit
+    handler:
+      type: command
+      command: "node {pack:root}/hooks/ponytail-aipack.js prompt.submit"
+      timeout: 5s
+  - on: compact.before
+    handler:
+      type: command
+      command: "node {pack:root}/hooks/ponytail-aipack.js compact.before"
+      timeout: 5s
