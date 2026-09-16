@@ -9,8 +9,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getDefaultMode, getClaudeDir, isShellSafe } = require('./ponytail-config');
-const { getPonytailInstructions } = require('./ponytail-instructions');
+const { getDefaultMode, getClaudeDir, isShellSafe } = require('./ponytail-config.cjs');
+const { getPonytailInstructions } = require('./ponytail-instructions.cjs');
 const {
   clearMode,
   cursorRuleNotice,

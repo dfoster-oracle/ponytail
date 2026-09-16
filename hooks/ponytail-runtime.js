@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-const { getClaudeDir, getConfigDir } = require('./ponytail-config');
+const { getClaudeDir, getConfigDir } = require('./ponytail-config.cjs');
 
 const STATE_FILE = '.ponytail-active';
 

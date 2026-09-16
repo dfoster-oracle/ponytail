@@ -15,10 +15,10 @@ const {
   normalizeMode,
   getPonytailInstructions,
 } = (() => {
-  const config = require('./ponytail-config');
+  const config = require('./ponytail-config.cjs');
   return {
     ...config,
-    getPonytailInstructions: require('./ponytail-instructions').getPonytailInstructions,
+    getPonytailInstructions: require('./ponytail-instructions.cjs').getPonytailInstructions,
   };
 })();
 

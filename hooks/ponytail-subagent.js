@@ -10,7 +10,7 @@
 // regex is unanchored and case-insensitive — "explore|general" matches either,
 // "^general$" is exact. Unset means inject into every subagent, as before.
 
-const { getPonytailInstructions } = require('./ponytail-instructions');
+const { getPonytailInstructions } = require('./ponytail-instructions.cjs');
 const { readMode, writeHookOutput } = require('./ponytail-runtime');
 
 const mode = readMode();
