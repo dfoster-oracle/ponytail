@@ -2,9 +2,8 @@
 // AIPack hook adapter for Ponytail.
 //
 // AIPack renders one command into several harnesses. Claude and Codex consume
-// hookSpecificOutput.additionalContext; AIPack's generated OpenCode and Cline
-// wrappers consume contextModification. Emitting both keeps this adapter
-// independent of the target harness.
+// hookSpecificOutput.additionalContext. OpenCode ignores command stdout, so
+// keep the output to the native hook shape accepted by Claude and Codex.
 
 const fs = require('fs');
 const path = require('path');
@@ -67,10 +66,7 @@ function emit(context) {
     hookEventName: nativeEventName(event),
     additionalContext: context,
   };
-  process.stdout.write(JSON.stringify({
-    hookSpecificOutput: native,
-    contextModification: context,
-  }) + '\n');
+  process.stdout.write(JSON.stringify({ hookSpecificOutput: native }) + '\n');
 }
 
 function instructionsFor(mode) {

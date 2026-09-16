@@ -23,14 +23,14 @@ function runAdapter(event, payload, configHome) {
   return JSON.parse(result.stdout);
 }
 
-test('AIPack startup hook emits both native and wrapper context shapes', (t) => {
+test('AIPack startup hook emits Codex-compatible native context', (t) => {
   const configHome = fs.mkdtempSync(path.join(os.tmpdir(), 'ponytail-aipack-'));
   t.after(() => fs.rmSync(configHome, { recursive: true, force: true }));
 
   const output = runAdapter('run.start', {}, configHome);
+  assert.deepEqual(Object.keys(output), ['hookSpecificOutput']);
   assert.equal(output.hookSpecificOutput.hookEventName, 'SessionStart');
   assert.match(output.hookSpecificOutput.additionalContext, /PONYTAIL MODE ACTIVE/);
-  assert.equal(output.contextModification, output.hookSpecificOutput.additionalContext);
 });
 
 test('AIPack prompt hook switches Ponytail mode', (t) => {
@@ -38,6 +38,7 @@ test('AIPack prompt hook switches Ponytail mode', (t) => {
   t.after(() => fs.rmSync(configHome, { recursive: true, force: true }));
 
   const output = runAdapter('prompt.submit', { prompt: '/ponytail ultra' }, configHome);
+  assert.deepEqual(Object.keys(output), ['hookSpecificOutput']);
   assert.equal(output.hookSpecificOutput.hookEventName, 'UserPromptSubmit');
-  assert.match(output.contextModification, /level: ultra/);
+  assert.match(output.hookSpecificOutput.additionalContext, /level: ultra/);
 });
