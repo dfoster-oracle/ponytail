@@ -1,20 +1,15 @@
 name: ponytail-aipack
-description: Keep Ponytail active and apply mode changes in AIPack-supported harnesses.
+description: Run Ponytail's native activation and mode hooks in Claude Code and Codex.
 events:
   - on: run.start
     match:
       source: startup|resume|clear|compact
     handler:
       type: command
-      command: "node {pack:root}/hooks/ponytail-aipack.cjs run.start"
+      command: 'node "{pack:root}/hooks/ponytail-aipack.cjs" run.start'
       timeout: 5s
   - on: prompt.submit
     handler:
       type: command
-      command: "node {pack:root}/hooks/ponytail-aipack.cjs prompt.submit"
-      timeout: 5s
-  - on: compact.before
-    handler:
-      type: command
-      command: "node {pack:root}/hooks/ponytail-aipack.cjs compact.before"
+      command: 'node "{pack:root}/hooks/ponytail-aipack.cjs" prompt.submit'
       timeout: 5s

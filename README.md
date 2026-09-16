@@ -184,7 +184,14 @@ aipack pack install --url https://github.com/DietrichGebert/ponytail.git --add
 aipack sync
 ```
 
-Installs the six skills and lifecycle hooks through AIPack's normal pack pipeline.
+Installs the six skills and runs Ponytail's native activation and mode-tracking
+hooks in Claude Code and Codex. Activation also runs after compaction through
+`SessionStart`; no `PreCompact` hook is needed. Codex command hooks store mode
+under the Ponytail configuration directory in `codex/.ponytail-active`.
+
+AIPack's portable hooks do not include `SubagentStart`. Use the native plugin
+installation for subagent inheritance. OpenCode's AIPack command-hook runner
+discards hook output; use the OpenCode plugin below for runtime behavior.
 
 ### OpenCode
 

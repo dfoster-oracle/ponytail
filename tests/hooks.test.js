@@ -11,7 +11,7 @@ const root = path.join(__dirname, '..');
 // isShellSafe gates the statusline setup snippet (issue #200): ordinary install
 // paths pass, paths carrying shell metacharacters are rejected so they never get
 // embedded in a shell command.
-const { DEFAULT_MODE, getDefaultMode, isShellSafe, writeDefaultMode } = require('../hooks/ponytail-config');
+const { DEFAULT_MODE, getDefaultMode, isShellSafe, writeDefaultMode } = require('../hooks/ponytail-config.cjs');
 assert.equal(isShellSafe('C:\\Users\\x\\.claude\\plugins\\ponytail\\hooks\\ponytail-statusline.ps1'), true);
 assert.equal(isShellSafe('/home/u/.claude/plugins/ponytail/hooks/ponytail-statusline.sh'), true);
 assert.equal(isShellSafe('/tmp/a"&calc.exe&"/x.sh'), false);
